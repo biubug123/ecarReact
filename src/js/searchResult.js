@@ -24,7 +24,7 @@ export default class SearchResult extends React.Component {
     }
 
     handleClick = (vid, event) =>{
-        this.props.history.push(`/weiXin//video/videoPlay/${vid}`);
+        this.props.history.push(`/weiXin/video/videoPlay/${vid}`);
     };
 
     render() {

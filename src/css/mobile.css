@@ -300,6 +300,13 @@ body {
     height: 100%;
 }
 
+.wrapper{
+    max-width:600px;
+}
+.wrapper video{
+    max-width:100%;
+    display: block;
+}
 
 .sticky-list .sticky-container .am-list-item { padding-left: 0; }
 .sticky-list .sticky-container .am-list-line { padding-right: 0; }

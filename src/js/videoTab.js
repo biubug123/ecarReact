@@ -14,7 +14,7 @@ export default class VideoTab extends React.Component {
     }
 
     handleClick(event) {
-        this.props.history.push(`/weiXin//video/searchResult/${event}`)
+        this.props.history.push(`/weiXin/video/searchResult/${event}`)
     }
 
 
@@ -68,25 +68,31 @@ export default class VideoTab extends React.Component {
                         maxLength={17}
                         onSubmit={this.handleClick.bind(this)}
                     />
-                    <Demo type={"0"} history={this.props.history} />
-                </div>
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '150px',
-                    backgroundColor: '#f4f4f6'
-                }}>
                     <Demo type={"1"} history={this.props.history} />
                 </div>
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '150px',
-                    backgroundColor: '#f4f4f6'
-                }}>
-                    第四
+                <div style={{backgroundColor: '#f4f4f6'}}>
+                    <SearchBar
+                        placeholder="内容关键字"
+                        maxLength={17}
+                        onSubmit={this.handleClick.bind(this)}
+                    />
+                    <Demo type={"2"} history={this.props.history} />
+                </div>
+                <div style={{backgroundColor: '#f4f4f6'}}>
+                    <SearchBar
+                        placeholder="内容关键字"
+                        maxLength={17}
+                        onSubmit={this.handleClick.bind(this)}
+                    />
+                    <Demo type={"3"} history={this.props.history} />
+                </div>
+                <div style={{backgroundColor: '#f4f4f6'}}>
+                    <SearchBar
+                        placeholder="内容关键字"
+                        maxLength={17}
+                        onSubmit={this.handleClick.bind(this)}
+                    />
+                    <Demo type={"4"} history={this.props.history} />
                 </div>
             </Tabs>
         )

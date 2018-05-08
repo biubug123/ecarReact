@@ -1,11 +1,11 @@
 import React from 'react';
-import {Modal, Toast, InputItem, Button} from 'antd-mobile';
+import {Modal, Toast} from 'antd-mobile';
 import "video-react/dist/video-react.css";
 import '../css/mobile.css';
 import moment from 'moment';
 import Login from './login';
 
-
+//modalVisible控制的是登录弹出确认, modal2控制的是咨询的弹出
 export default class VideoPlay extends React.Component {
     constructor(props) {
         super(props);
@@ -57,12 +57,14 @@ export default class VideoPlay extends React.Component {
             .then(json => {
                 Toast.success('提交成功,等待审核', 1)
             });
-        this.props.history.push(`/weiXin//Video/videoPlay/${this.props.match.params.vid}`);
+        this.props.history.push(`/weiXin/Video/videoPlay/${this.props.match.params.vid}`);
     }
 
 
     toConsultancy() {
-        if(localStorage.userPhone === '') {
+        if(localStorage.hasLogined !== undefined) {
+            this.showLogin();
+            console.log("咨询MODAL" + this.state.modalVisible);
 
         } else {
             this.setState({modal2: true});
@@ -82,9 +84,10 @@ export default class VideoPlay extends React.Component {
     };
 
     showLogin = () =>{
-        console.log(2333);
-        this.setState({modalVisible: true});
-        console.log(this.state.modalVisible);
+        console.log("showLoginVisilbe:" + this.state.modalVisible)
+        this.setState({modalVisible: true}, () => {
+            this.setState({modalVisible: true})
+        });
     };
 
     handleFavourite = (e) =>{
@@ -93,7 +96,7 @@ export default class VideoPlay extends React.Component {
             mode: 'no-cors'
         };
 
-        if(localStorage.userPhone == '') {
+        if(localStorage.hasLogined == undefined) {
             this.showLogin();
         } else {
             fetch(`https://www.eyeauto.cn/HelloSpringBoot/collectRecord?userPhone=${localStorage.userPhone}&videoId=${this.props.match.params.vid}`, fetchOption)
@@ -184,8 +187,10 @@ export default class VideoPlay extends React.Component {
             <div className="component" style={{zIndex: 2, bottom: '30px'}}>
                 <Login visible={this.state.modalVisible}/>
                 <div>
+                    <div className="wrapper">
                     <video src={this.state.video.videoUrl} width="100%"
-                           height="240px" controls="controls"/>
+                           height="240px" controls="controls" style={{backgroundColor: 'black'}}/>
+                    </div>
                     <div style={{ backgroundColor: '#373B3E',padding: '0 10px'}}>
                     <div style={{ lineHeight: '40px', paddingLeft: '5px',  margin: 'auto', borderBottom: '2px solid #78bc78', color: '#FFFFFF', wordBreak: 'break-all', wordWrap: 'break-word'}}>
                         <span style={{padding: '0px 5px'}}>{this.state.video.fileName}</span>

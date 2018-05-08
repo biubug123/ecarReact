@@ -25,9 +25,6 @@ export default class CallBackDetail extends React.Component {
             .then(json => this.setState({vin: json}));
     }
 
-    handleClick = () => {
-        this.props.history.push("/weiXin//recall")
-    };
 
     render() {
         const {recall} = this.state;
@@ -100,7 +97,6 @@ export default class CallBackDetail extends React.Component {
                         </tr>
                     </tbody>
                 </table>
-                <Button type="primary"  onClick={this.handleClick}>返回</Button>
             </div>
         )
     }

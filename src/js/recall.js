@@ -50,7 +50,7 @@ export default class CallBack extends React.Component {
         const {recall} = this.state;
         const recallList = recall.length > 0 ?
             recall.map((recallItem, index) => (
-                <Link to={`/weiXin//recall/recallDetail/${recall[index].rid}`} key={index}>
+                <Link to={`/weiXin/recall/recallDetail/${recall[index].rid}`} key={index}>
                     <ul style={{
                         listStyleType: 'none',
                         margin: '0px 0px 0px -20px',
@@ -79,9 +79,9 @@ export default class CallBack extends React.Component {
                     mode="dark"
                     leftContent="召回公告"
                     rightContent={[<Icon key="0" type="search" onClick={() => Modal.prompt('公告查询', '输入你要查询的公告', [
-                        { text: 'Cancel' },
-                        { text: 'Submit', onPress: this.searchRecall },
-                    ], 'default', '100')} style={{marginRight: '16px'}}/>,]}
+                        { text: '取消' },
+                        { text: '提交', onPress: this.searchRecall },
+                    ])} style={{marginRight: '16px'}}/>,]}
                 />
                 <div>
                     {recallList}

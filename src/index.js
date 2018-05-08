@@ -7,7 +7,6 @@ import './css/mobile.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import CallBackDetail from './js/recallDetail';
 import MaintenanceDetail from "./js/maintenanceDetail";
-import Consultancy from "./js/consultancy";
 import MainLayout from "./js/tabBar";
 import CollectReecord from "./js/collectRecord";
 import Record from "./js/record";
@@ -22,7 +21,6 @@ class Root extends React.Component {
                     <Route path={`/${projectName}`} component={MainLayout} />
                     <Route path={`/${projectName}/maintenance/maintenanceDetail/:cid`} component={MaintenanceDetail} />
                     <Route path={`/${projectName}/video/videoPlay/:vid`} component={VideoPlay} />
-                    <Route path={`/${projectName}/video/videoPlay/:vid/consultancy`} component={Consultancy} />
                     <Route path={`/${projectName}/recall/recallDetail/:rid`} component={CallBackDetail} />
                     <Route path={`/${projectName}/my/collectRecord`} component={CollectReecord} />
                     <Route path={`/${projectName}/my/record`} component={Record} />
