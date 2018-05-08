@@ -10,6 +10,7 @@ import MaintenanceDetail from "./js/maintenanceDetail";
 import Consultancy from "./js/consultancy";
 import MainLayout from "./js/tabBar";
 import CollectReecord from "./js/collectRecord";
+import requireAuthentication from './util/authenticated'
 import Record from "./js/record";
 import SearchResult from "./js/searchResult";
 
@@ -19,7 +20,7 @@ class Root extends React.Component {
         return (
             <BrowserRouter>
                 <div id="container" style={{position: 'fixed', right: 0,top: 0, left: 0, bottom: 0}}>
-                    <Route path={`/${projectName}`} component={MainLayout} />
+                    <Route path={`/${projectName}`} component={requireAuthentication(MainLayout)} />
                     <Route path={`/${projectName}/maintenance/maintenanceDetail/:cid`} component={MaintenanceDetail} />
                     <Route path={`/${projectName}/video/videoPlay/:vid`} component={VideoPlay} />
                     <Route path={`/${projectName}/video/videoPlay/:vid/consultancy`} component={Consultancy} />

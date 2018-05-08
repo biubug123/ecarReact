@@ -16,20 +16,20 @@ export default class Demo extends React.Component {
     }
 
     componentDidMount() {
-        if(this.props.type == ""){
-            fetch("http://localhost:8080/listVideo", {method: 'GET'})
-                .then(response => response.json())  
-                .then(json => ())
-         else {
-            fetch(`https://www.eyeauto.cn/HelloSpringBoot/listVideoByType?type=${this.props.type}`,{method: 'GET'})
-                .then(response => response.json())
-                .then(json => {
-                    console.log(json);
-                    this.setState({
-                        data: json
-                    });
-                });
-        }
+        // if(this.props.type == ""){
+        //     fetch("http://localhost:8080/listVideo", {method: 'GET'})
+        //         .then(response => response.json())
+        //         .then(json => ())
+        //  else {
+        //     fetch(`https://www.eyeauto.cn/HelloSpringBoot/listVideoByType?type=${this.props.type}`,{method: 'GET'})
+        //         .then(response => response.json())
+        //         .then(json => {
+        //             console.log(json);
+        //             this.setState({
+        //                 data: json
+        //             });
+        //         });
+        // }
     }
 
 

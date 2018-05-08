@@ -78,7 +78,7 @@
                 fetch(`https://www.eyeauto.cn/HelloSpringBoot/insertOrUpdateRecord?userPhone=${localStorage.userPhone}&vid=${vid}`, {method: 'GET'})
                     .then(response => response.json());
             }
-            this.props.history.push(`/weiXin//video/videoPlay/${vid}`);
+            this.props.history.push(`/weiXin/video/videoPlay/${vid}`);
         };
 
 

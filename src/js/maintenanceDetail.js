@@ -16,7 +16,7 @@ export default class MaintenanceDetail extends React.Component {
     }
 
     toMaintenance = () => {
-        this.props.history.push("/weiXin//maintenance");
+        this.props.history.push("/weiXin/maintenance");
     };
 
     componentDidMount() {
