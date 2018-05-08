@@ -35,11 +35,22 @@ export default function requireAuthentication(Component) {
             if (r != null) return decodeURI(r[2]);
             return null;
         }
-
+        //获取cookie
+        getCookie(name)
+        {
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg))
+                return unescape(arr[2]);
+            else
+                return null;
+        }
         checkAuth() {
             let code = this.getParam("code");
+            //从cookie中获取openId的值
+            let openId = this.getCookie("openId");
             Toast.loading(code,3);
-            if(code !== null){
+            //防止频繁查询更新openid
+            if(code !== null && openId === null){
                 let url="https://www.eyeauto.cn/HelloSpringBoot/weiXinPublic/getWeChatUser?code=";
                 // let url ="http://localhost:8080/demo/weiXinPublic/getWeChatUser?code=";
                 fetch(url+code,{
